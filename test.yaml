@@ -1,2 +1,5 @@
-foo:
+foo: &foo
   bar: omer1
+
+
+test: *foo
