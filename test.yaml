@@ -1,3 +1,3 @@
 foo: &foo
-    bar: "123e1"
+    bar: "123"
 test: *foo
