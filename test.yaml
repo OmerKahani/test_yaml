@@ -1,3 +1,16 @@
-foo: &foo
-    bar: "123"
-test: *foo
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: before
+  annotations:
+    helm.sh/hook: pre-upgrade
+    helm.sh/hook-delete-policy: before-hook-creation
+spec:
+  template:
+    spec:
+      containers:
+      - name: sleep
+        image: alpine:latest
+        command: ["sleep", "60"]
+      restartPolicy: Never
+  backoffLimit: 0
